@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext"; // Import useAuth
 
 function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth(); // Use login from AuthContext
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (username === "admin" && password === "password") {
-      navigate("/welcome");
+    if (username === "admin" && password === "12345pass") {
+      login(); // Update context state
+      navigate("/dashboard"); // Redirect
     } else {
       alert("Invalid username or password");
     }

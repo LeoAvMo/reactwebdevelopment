@@ -60,3 +60,7 @@ npm install react-router-dom
 ```
 npm install react-router-dom
 ```
+
+# API pokemon
+
+Entrar a http://localhost:5173/protected para acceder a los datos del api

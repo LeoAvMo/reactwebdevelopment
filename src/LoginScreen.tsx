@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext"; // Import useAuth
+import { useAuth } from "./AuthContext";
 
 function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth(); // Use login from AuthContext
+  const { login } = useAuth();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (username === "admin" && password === "12345pass") {
-      login(); // Update context state
-      navigate("/dashboard"); // Redirect
+      login();
+      navigate("/dashboard");
     } else {
       alert("Invalid username or password");
     }
@@ -50,6 +50,20 @@ function LoginScreen() {
             Login
           </button>
         </form>
+        <div className="mt-4 flex flex-col items-center">
+          <button
+            onClick={() => navigate("/register")}
+            className="text-blue-500 hover:underline"
+          >
+            Create an account
+          </button>
+          <button
+            onClick={() => navigate("/forgot-password")}
+            className="text-blue-500 hover:underline mt-2"
+          >
+            Forgot your password?
+          </button>
+        </div>
       </div>
     </div>
   );
